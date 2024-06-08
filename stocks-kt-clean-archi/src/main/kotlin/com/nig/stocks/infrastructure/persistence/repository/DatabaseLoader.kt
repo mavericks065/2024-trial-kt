@@ -1,4 +1,4 @@
-package com.nig.stocks.infrastructure.repository
+package com.nig.stocks.infrastructure.persistence.repository
 
 import jakarta.annotation.PostConstruct
 import org.springframework.core.io.Resource
@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.sql.Date
-import java.sql.Timestamp
 import java.util.*
 
 
