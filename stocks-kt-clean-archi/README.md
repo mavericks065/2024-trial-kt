@@ -1,21 +1,8 @@
 # stocks
 
-This Kotlin based [Spring Boot](https://spring.io/projects/spring-boot) application has been generated using the [OpenAPI Generator](https://github.com/OpenAPITools/openapi-generator).
+This Kotlin based [Spring Boot](https://spring.io/projects/spring-boot) application is a simple REST API to manage stocks.
 
-## Getting Started
+These stocks are currently stored in memory and are not persisted. I am using H2 as the database as of now. 
 
-This document assumes you have either maven or gradle available, either via the wrapper or otherwise. This does not come with a gradle / maven wrapper checked in.
-
-By default a [`pom.xml`](pom.xml) file will be generated. If you specified `gradleBuildFile=true` when generating this project, a `build.gradle.kts` will also be generated. Note this uses [Gradle Kotlin DSL](https://github.com/gradle/kotlin-dsl).
-
-To build the project using maven, run:
-```bash
-mvn package && java -jar target/openapi-spring-1.0.0.jar
-```
-
-To build the project using gradle, run:
-```bash
-gradle build && java -jar build/libs/openapi-spring-1.0.0.jar
-```
-
-If all builds successfully, the server should run on [http://localhost:8080/](http://localhost:8080/)
+The application provides the following endpoints:
+- GET /stocks - you can get all the stocks or use the symbol query parameter to filter by symbol
