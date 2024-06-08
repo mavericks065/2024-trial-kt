@@ -1,0 +1,16 @@
+stocks-kt-clean-archi/.gradle
+stocks-kt-clean-archi/build/
+stocks-kt-clean-archi/gradle/wrapper/gradle-wrapper.jar
+stocks-kt-clean-archi/src/main/**/build/
+stocks-kt-clean-archi/src/test/**/build/
+stocks-kt-clean-archi/.java-version
+stocks-kt-clean-archi/bin/
+
+### IntelliJ IDEA ###
+stocks-kt-clean-archi/.idea
+stocks-kt-clean-archi/*.iws
+stocks-kt-clean-archi/*.iml
+stocks-kt-clean-archi/*.ipr
+stocks-kt-clean-archi/out/
+
+
