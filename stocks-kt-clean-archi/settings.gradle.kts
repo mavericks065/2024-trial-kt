@@ -4,4 +4,4 @@ pluginManagement {
 		gradlePluginPortal()
 	}
 }
-rootProject.name = "stocks"
+rootProject.name = "stocks-clean-architecture"

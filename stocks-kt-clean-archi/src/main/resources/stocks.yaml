@@ -1,0 +1,177 @@
+openapi: 3.0.1
+info:
+  title: Stocks API
+  description: API for managing stocks
+  version: "1.0"
+servers:
+- url: http://localhost:8080
+  description: Generated server url
+paths:
+  /internalApi/v1/stocks:
+    get:
+      tags:
+      - stocks-controller
+      summary: Get stocks
+      description: Get all stocks or filter by symbol or fromDate with paginated result
+      operationId: getStocks
+      parameters:
+      - name: symbol
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: fromDate
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: pageable
+        in: query
+        required: true
+        schema:
+          $ref: "#/components/schemas/Pageable"
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/PageStockAPI"
+  /health:
+    get:
+      tags:
+      - health-check-controller
+      operationId: healthCheck
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/HelloWorld"
+components:
+  schemas:
+    Pageable:
+      type: object
+      properties:
+        page:
+          minimum: 0
+          type: integer
+          format: int32
+        size:
+          minimum: 1
+          type: integer
+          format: int32
+        sort:
+          type: array
+          items:
+            type: string
+    DayMetricAPI:
+      required:
+      - closingPrice
+      - spread
+      - variation
+      - volume
+      type: object
+      properties:
+        volume:
+          type: integer
+          format: int64
+        variation:
+          type: number
+          format: double
+        spread:
+          type: number
+          format: double
+        closingPrice:
+          type: number
+          format: double
+    PageStockAPI:
+      type: object
+      properties:
+        totalElements:
+          type: integer
+          format: int64
+        totalPages:
+          type: integer
+          format: int32
+        first:
+          type: boolean
+        last:
+          type: boolean
+        size:
+          type: integer
+          format: int32
+        content:
+          type: array
+          items:
+            $ref: "#/components/schemas/StockAPI"
+        number:
+          type: integer
+          format: int32
+        sort:
+          type: array
+          items:
+            $ref: "#/components/schemas/SortObject"
+        numberOfElements:
+          type: integer
+          format: int32
+        pageable:
+          $ref: "#/components/schemas/PageableObject"
+        empty:
+          type: boolean
+    PageableObject:
+      type: object
+      properties:
+        offset:
+          type: integer
+          format: int64
+        sort:
+          type: array
+          items:
+            $ref: "#/components/schemas/SortObject"
+        unpaged:
+          type: boolean
+        paged:
+          type: boolean
+        pageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+    SortObject:
+      type: object
+      properties:
+        direction:
+          type: string
+        nullHandling:
+          type: string
+        ascending:
+          type: boolean
+        property:
+          type: string
+        ignoreCase:
+          type: boolean
+    StockAPI:
+      required:
+      - date
+      - dayMetric
+      - symbol
+      type: object
+      properties:
+        symbol:
+          type: string
+        date:
+          type: string
+          format: date-time
+        dayMetric:
+          $ref: "#/components/schemas/DayMetricAPI"
+    HelloWorld:
+      required:
+      - message
+      type: object
+      properties:
+        message:
+          type: string
