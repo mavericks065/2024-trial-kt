@@ -12,3 +12,16 @@ Example of requests:
 - http://localhost:8080/internalApi/v1/stocks?symbol=AAPL&page=1
 - http://localhost:8080/internalApi/v1/stocks?symbol=AAPL&size=20
 - http://localhost:8080/internalApi/v1/stocks?fromDate=2020-07-01
+
+
+In order to get the openapi spec: 
+- http://localhost:8080/api-docs
+- to download it: http://localhost:8080/api-docs.yaml
+- to visualize it: http://localhost:8080/swagger-ui.html
+
+To generate the openapi spec, I am using [springdoc-openapi](https://springdoc.org/):
+
+```bash
+$ gradle generateOpenApiDocs
+```
+Then get the file from: `/build/openapi.json`
