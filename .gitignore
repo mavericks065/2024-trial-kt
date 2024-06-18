@@ -14,3 +14,19 @@ stocks-kt-clean-archi/*.ipr
 stocks-kt-clean-archi/out/
 
 
+kt-clean-arch-codegen/.gradle
+kt-clean-arch-codegen/build/
+kt-clean-arch-codegen/gradle/wrapper/gradle-wrapper.jar
+kt-clean-arch-codegen/src/main/**/build/
+kt-clean-arch-codegen/src/test/**/build/
+kt-clean-arch-codegen/.java-version
+kt-clean-arch-codegen/bin/
+
+### IntelliJ IDEA ###
+kt-clean-arch-codegen/.idea
+kt-clean-arch-codegen/*.iws
+kt-clean-arch-codegen/*.iml
+kt-clean-arch-codegen/*.ipr
+kt-clean-arch-codegen/out/
+
+

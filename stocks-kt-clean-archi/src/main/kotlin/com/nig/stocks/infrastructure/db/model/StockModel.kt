@@ -1,4 +1,4 @@
-package com.nig.stocks.infrastructure.persistence.model
+package com.nig.stocks.infrastructure.db.model
 
 import jakarta.persistence.*
 import java.sql.Timestamp

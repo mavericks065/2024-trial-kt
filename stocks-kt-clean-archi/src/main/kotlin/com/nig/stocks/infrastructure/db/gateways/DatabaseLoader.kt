@@ -1,4 +1,4 @@
-package com.nig.stocks.infrastructure.persistence.repository
+package com.nig.stocks.infrastructure.db.gateways
 
 import jakarta.annotation.PostConstruct
 import org.springframework.core.io.Resource

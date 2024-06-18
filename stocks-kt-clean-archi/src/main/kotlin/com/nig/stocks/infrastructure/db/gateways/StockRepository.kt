@@ -1,6 +1,6 @@
-package com.nig.stocks.infrastructure.persistence.repository
+package com.nig.stocks.infrastructure.db.gateways
 
-import com.nig.stocks.infrastructure.persistence.model.StockModel
+import com.nig.stocks.infrastructure.db.model.StockModel
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.data.jpa.repository.JpaRepository

@@ -1,17 +1,13 @@
 package com.nig.stocks.business.useCases
 
 import com.nig.stocks.business.domain.Stock
-import com.nig.stocks.infrastructure.persistence.model.StockModel
-import com.nig.stocks.infrastructure.persistence.repository.StockRepository
-import com.nig.stocks.infrastructure.web.model.DayMetricAPI
-import com.nig.stocks.infrastructure.web.model.StockAPI
+import com.nig.stocks.infrastructure.db.model.StockModel
+import com.nig.stocks.infrastructure.db.gateways.StockRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Service
 import java.sql.Date
-import java.sql.Timestamp
-import java.util.*
 import kotlin.math.abs
 
 @Service
