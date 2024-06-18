@@ -1,8 +1,8 @@
 package com.nig.stocks.infrastructure.web.controllers
 
-import com.nig.stocks.infrastructure.web.model.StockAPI
 import com.nig.stocks.business.useCases.GetStocksUseCase
 import com.nig.stocks.infrastructure.web.model.DayMetricAPI
+import com.nig.stocks.infrastructure.web.model.StockAPI
 import io.swagger.v3.oas.annotations.Operation
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.domain.Page
