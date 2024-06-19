@@ -1,25 +1,25 @@
 package com.nig.stocks.business.useCases
 
 import com.nig.stocks.business.domain.Stock
-import com.nig.stocks.infrastructure.db.gateways.StockRepository
+import com.nig.stocks.business.gateways.StocksGateway
 import com.nig.stocks.infrastructure.db.model.StockModel
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import java.sql.Date
 import kotlin.math.abs
 
-class GetStocksUseCaseImpl(private val repository: StockRepository): GetStocksUseCase {
+class GetStocksUseCaseImpl(private val gateway: StocksGateway): GetStocksUseCase {
 
     override fun getStocks(symbol: String?, fromDate: Date?, pageable: Pageable): Page<Stock> {
         val stockFound = if (symbol == null && fromDate == null) {
-            repository.findAll(pageable)
+            gateway.findAllStocks(pageable)
         } else {
-            repository.findBySymbolOrDateGreaterThanEqual(
+            gateway.findStocksBy(
                 symbol = symbol, date = fromDate, pageable = pageable
             )
         }
 
-        return stockFound.map {it ->
+        return stockFound.map {
             Stock(
                 id = it.id,
                 date = it.date.toInstant(),

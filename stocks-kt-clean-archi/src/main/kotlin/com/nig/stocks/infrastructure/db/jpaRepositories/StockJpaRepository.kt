@@ -1,4 +1,4 @@
-package com.nig.stocks.infrastructure.db.gateways
+package com.nig.stocks.infrastructure.db.jpaRepositories
 
 import com.nig.stocks.infrastructure.db.model.StockModel
 import org.springframework.data.domain.Page
@@ -9,6 +9,6 @@ import java.sql.Date
 import java.util.*
 
 @Repository
-interface StockRepository : JpaRepository<StockModel, UUID> {
+interface StockJpaRepository : JpaRepository<StockModel, UUID> {
     fun findBySymbolOrDateGreaterThanEqual(symbol: String?, date: Date?, pageable: Pageable): Page<StockModel>
 }
